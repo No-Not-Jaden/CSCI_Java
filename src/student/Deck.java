@@ -3,9 +3,18 @@ package student;
 import java.util.Random;
 
 public class Deck {
-    private static final Random random = new Random();
+    /**
+     * A pseudo random number generated to randomly shuffle the cards.
+     */
+    private static final Random RANDOM = new Random();
 
+    /**
+     * The number of cards remaining in the deck.
+     */
     private int cardsRemaining;
+    /**
+     * The current cards in the deck.
+     */
     private final Card[] cards = new Card[52];
 
     /**
@@ -21,11 +30,11 @@ public class Deck {
     }
 
     /**
-     * Shuffles the deck of cards in a random order
+     * Shuffles the deck of cards in a random order.
      */
     public void shuffle() {
-        for (int i = cards.length-1; i > 0; i--) {
-            int j = random.nextInt(0, i + 1);
+        for (int i = cards.length - 1; i > 0; i--) {
+            int j = RANDOM.nextInt(0, i + 1);
             Card tempCard = cards[i];
             cards[i] = cards[j];
             cards[j] = tempCard;
@@ -46,6 +55,10 @@ public class Deck {
         return cards[cardsRemaining];
     }
 
+    /**
+     * Get the number of cards remaining in the deck before another shuffle must happen.
+     * @return The number of cards remaining in the deck.
+     */
     public int cardsRemaining() {
         return cardsRemaining;
     }

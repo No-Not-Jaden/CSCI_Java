@@ -33,6 +33,10 @@ public class Card {
         }
     }
 
+    /**
+     * Get the rank number of the card.
+     * @return The rank number of the card.
+     */
     public int getRankNum() {
         return rank;
     }
@@ -113,8 +117,12 @@ public class Card {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Card card)) return false;
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof Card card)) {
+            return false;
+        }
         return rank == card.rank && suit == card.suit;
     }
 
